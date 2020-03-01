@@ -1,4 +1,5 @@
 import sys
+from random import randint
 
 
 class Node:
@@ -41,6 +42,9 @@ class LinkedList:
             t.next = node
 
     def printList(self):
+        '''
+        Danger! May not return if its a list with a cycle!
+        '''
         t = self.head
         while t.next:
             sys.stdout.write(str(t.data) + "->")
@@ -51,49 +55,33 @@ class LinkedList:
         return self.size
 
 
-def reverse_list(LL):
-    '''
-    reverse a list
-    Args:
-        LL : Linked list object
-    '''
-    head = LL.getHead()
-    current = head
-    prev = None
-    while current:
-        # Forward is used to remember where current should go
-        forward = current.next
-        # Change current's pointer to point back
-        current.next = prev
-        # Move prev to current
-        prev = current
-        # Move current to forward
-        current = forward
-    LL.setHead(prev)
-    return
-
-
-def build_list(n):
+def build_list_with_cycle(n):
     '''
     Builds and returns a LinkedList of size n
     '''
+    a = randint(1, n)
+    counter = 1
+    cycle_start_node = None
+
     LL = LinkedList()
     for i in range(1, n+1):
         n = Node(i)
         LL.append(n)
+        if counter == a:
+            cycle_start_node = n
+        counter = counter + 1
+
+    print("going to set a cycle at node: " + str(a) + " From the last node")
+    n.next = cycle_start_node
+
     return LL
 
 
 def main():
     # Create a list with 5 nodes and print it
-    LL = build_list(13)
+    LL = build_list_with_cycle(13)
     sys.stdout.write("Initialized List: ")
-    LL.printList()
-
-    # Reverse the linked list - Traditional method
-    sys.stdout.write("Reversed List: ")
-    reverse_list(LL)
-    LL.printList()
+    #LL.printList()
 
 
 if __name__ == "__main__":
