@@ -1,6 +1,5 @@
 '''
-Not complete!
-There should be a fastfunc.com URL here if this code is complete
+https://www.fastfunc.com/reversing-linked-lists/
 '''
 import sys
 
