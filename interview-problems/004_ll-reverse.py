@@ -86,7 +86,7 @@ def build_list(n):
 
 def main():
     # Create a list with 5 nodes and print it
-    LL = build_list(13)
+    LL = build_list(5)
     sys.stdout.write("Initialized List: ")
     LL.printList()
 

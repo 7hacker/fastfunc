@@ -53,6 +53,13 @@ class LinkedList:
         sys.stdout.write(str(t.data) + "\n")
 
     def is_valid(self):
+        '''
+        Verify if the double linked list is valid
+        Valid in this case means that the next and prev pointers tally up
+        an easy way to do this is to build a string going forward and backward
+        and verify that the backward string is similar to the forward, reversed
+        '''
+        # t will traverse the linked list
         t = self.head
         forward = ""
         while t.next:
@@ -65,6 +72,7 @@ class LinkedList:
             backward = backward + str(t.data)
             t = t.prev
         backward = backward + str(t.data)
+        # Reverse the backward string and check if it equals to forward
         if forward == backward[::-1]:
             return True
         print("Forward Read of list: ", forward)
@@ -115,13 +123,13 @@ def main():
     LL = build_list(5)
     sys.stdout.write("Initialized List: ")
     LL.printList()
-    print(LL.is_valid())
+    print("Linked list validity check: " + str(LL.is_valid()))
 
     # Reverse the linked list - Traditional method
     sys.stdout.write("Reversed List: ")
     reverse_list(LL)
     LL.printList()
-    print(LL.is_valid())
+    print("Linked list validity check: " + str(LL.is_valid()))
 
 
 if __name__ == "__main__":
