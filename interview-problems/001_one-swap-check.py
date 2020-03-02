@@ -1,3 +1,8 @@
+'''
+https://www.fastfunc.com/solution-intuition-one-swap-check/
+'''
+
+
 def one_swap_check(A, B):
     if len(A) != len(B):
         return False

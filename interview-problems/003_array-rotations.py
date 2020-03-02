@@ -1,3 +1,7 @@
+'''
+https://www.fastfunc.com/array-rotations/
+'''
+
 
 def reverse(A, start, end):
     # reverse elements in A from start index to end index, inclusive
