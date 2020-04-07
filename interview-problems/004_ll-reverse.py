@@ -11,7 +11,7 @@ class Node:
     A LinkedList Node consists of data and a pointer
     to another node
     '''
-    def __init__(self, d=None, double=False):
+    def __init__(self, d=None):
         self.data = d
         self.next = None
 

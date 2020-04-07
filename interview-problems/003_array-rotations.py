@@ -1,7 +1,3 @@
-'''
-https://www.fastfunc.com/array-rotations/
-'''
-
 
 def reverse(A, start, end):
     # reverse elements in A from start index to end index, inclusive
@@ -17,18 +13,20 @@ def reverse(A, start, end):
     return A
 
 
-def rotate_array(A, k, right=True):
+def right_rotate_array(A, k):
     '''
-    Rotate elements in A by k positions.
-    Right rotate by default
+    Right Rotate elements in A by k positions.
     '''
+    # downsize k
+    k = k % len(A)
+
+    # First reversal
     A = reverse(A, 0, len(A)-1)
-    if right:
-        A = reverse(A, 0, k-1)
-        A = reverse(A, k, len(A)-1)
-    else:
-        A = reverse(A, 0, len(A)-k-1)
-        A = reverse(A, len(A)-k, len(A)-1)
+
+    # Second Reversal
+    A = reverse(A, 0, k-1)
+    A = reverse(A, k, len(A)-1)
+
     return A
 
 
@@ -36,7 +34,7 @@ def main():
     A = [1, 2, 3, 4, 5, 6]
     k = 2
     print(A)
-    A = rotate_array(A, k)
+    A = right_rotate_array(A, k)
     print(A)
 
 
