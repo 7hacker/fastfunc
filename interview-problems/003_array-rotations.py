@@ -32,7 +32,7 @@ def right_rotate_array(A, k):
 
 def main():
     A = [1, 2, 3, 4, 5, 6]
-    k = 2
+    k = 8
     print(A)
     A = right_rotate_array(A, k)
     print(A)
